@@ -31,3 +31,32 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 
 ## I think I maybe can *wink wink*
+
+...or can I?
+
+```{r}
+f <- function(x) {
+  2 * x^2 + 3 * x - 10
+}
+
+n <- 50
+x <- 1:n
+y <- f(x) + rnorm(n, sd = n)
+df <- data.frame(x = x, y = y)
+model <- lm(y ~ x + I(x^2), df)
+
+summary(model)
+```
+Great, we have a model
+
+```{r}
+f_hat <- function(x) {
+  model$co[3] * x^2 + model$co[2] * x + model$co[1]
+}
+
+plot(df, pch = 3, col = "red")
+lines(1:n, f(1:n), col = "blue")
+lines(1:n, f_hat(1:n), col = "green")
+```
+
+ggg
