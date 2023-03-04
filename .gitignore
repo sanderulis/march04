@@ -2,3 +2,5 @@
 .Rhistory
 .RData
 .Ruserdata
+testing.{docx, html, tex}
+Rplots.pdf
